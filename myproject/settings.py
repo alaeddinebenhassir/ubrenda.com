@@ -25,7 +25,7 @@ SECRET_KEY = '7j4n#x($wclf=di16c@2+l%nwbv06__4b8r9jy@+@bwceste3v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True 
 
-ALLOWED_HOSTS = ['159.203.181.253','ubrenda.com','www.ubrenda.com']
+ALLOWED_HOSTS = ['127.0.0.1','159.203.181.253','ubrenda.com','www.ubrenda.com']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'catloge'
 ]
 
 MIDDLEWARE = [
