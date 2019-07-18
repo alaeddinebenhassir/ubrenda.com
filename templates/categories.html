@@ -1,0 +1,76 @@
+{% extends "base_generic.html"%}
+{% block content %}
+{% load static %}
+<!-- Page info -->
+<div class="page-top-info">
+    <div class="container">
+        <h4>CAtegory PAge</h4>
+        <div class="site-pagination">
+            <a href="">Home</a> /
+            <a href="">Shop</a> /
+        </div>
+    </div>
+</div>
+<!-- Page info end -->
+
+
+<!-- Category section -->
+<section class="category-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 order-2 order-lg-1">
+                <div class="filter-widget">
+                    <h2 class="fw-title">Categories</h2>
+                    <ul class="category-menu">
+                            {%for cat in c %}
+                            <li><a href="{{cat.get_absolute_url}}">{{cat.name}}</a></li>
+                        {%endfor%}
+                    </ul>
+                </div>
+                
+                <div class="filter-widget">
+                    <h2 class="fw-title">Brand</h2>
+                    <ul class="category-menu">
+                        <!-- filter by brand -->
+
+                        <li><a href="#">Not Yet @@@@@@ </a>                    
+                        </li>
+                    </ul>
+                </div>
+            </div>
+               
+            <div class="col-lg-9  order-1 order-lg-2 mb-5 mb-lg-0">
+                <div class="row">
+                        {%for p in product %}
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="product-item">
+                                <div class="pi-pic">
+                                    <a href="{{p.get_absolute_url}}"><img src="{{ p.img.url }}" alt="{{p.name}}"></a>
+                                    <div class="pi-links">
+                                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="pi-text">
+                                    <h6>${{p.price}}</h6>
+                                    <p><a href="{{p.get_absolute_url}}">{{p.name}}</a></p>
+                                    
+    
+                                </div>
+                            </div>
+                        </div>
+                    {%endfor%}
+                </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Category section end -->
+<h1>Tis Is categories Page</h1>
+    {%for cat in c %}
+        <a href="{{cat.get_absolute_url}}">{{cat.name}}</a>
+    {%endfor%}
+{% endblock %}
