@@ -2027,6 +2027,7 @@ ul.row, ul.row-sm {
   overflow: hidden; }
 
 .icontext {
+	color: #5D3C90;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -2037,7 +2038,9 @@ ul.row, ul.row-sm {
     position: relative; }
   .icontext .text-wrap {
     line-height: 1.2;
-    padding-left: 10px; }
+    padding-left: 10px;
+	
+}
   .icontext small, .icontext .title {
     display: block; }
 
@@ -2249,5 +2252,10 @@ ul.row, ul.row-sm {
   .menu-category li:hover .submenu {
     display: block;
     margin-left: 0px; }
+
+.fa-heart{
+	color: #dc3545;
+}
+
 
 /*# sourceMappingURL=ui.css.map */
