@@ -4,13 +4,7 @@
 {% block content %}
 {% load static %}
 
-	
-<!-- ========================= SECTION ITEMS ========================= -->
-<section class="section-request bg padding-y-sm">
-	<div class="container">
-	<header class="section-heading heading-line">
-		<h4 class="title-section bg text-uppercase">Recommended items</h4>
-	</header>
+
 	
 <!-- ========================= SECTION MAIN ========================= -->
 <section class="section-main bg padding-y-sm">
@@ -98,7 +92,13 @@
 	</div> <!-- container .//  -->
 	</section>
 	<!-- ========================= SECTION MAIN END// ========================= -->
-	
+		
+	<!-- ========================= SECTION ITEMS ========================= -->
+	<section class="section-request bg padding-y-sm">
+	<div class="container">
+	<header class="section-heading heading-line">
+		<h4 class="title-section bg text-uppercase">Recommended items</h4>
+	</header>
 	<div class="row-sm">
 					{%for p in product %}
 						
@@ -120,7 +120,7 @@
 					{%endfor%}
 			</div> <!-- row.// -->
 			</div><!-- container // -->
-			</section>
+	</section>
 						<!-- ========================= SECTION ITEMS .END// ========================= -->
 						
 	{% endblock %}
