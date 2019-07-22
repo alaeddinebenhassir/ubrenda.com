@@ -109,8 +109,31 @@
             </div> <!-- col.// -->
         </div> <!-- row.// -->
         <hr>
-        <a href="#" class="btn  btn-warning"> <i class="fa fa-credit-card"></i> By Now </a>
-        <a href="#" class="btn  btn-outline-warning"> <i class="fa fa-shopping-cart"></i>Add to Card </a>
+         
+                <form action="{% url 'charge' %}" methode='POST'>
+                        {% csrf_token %}
+                        
+
+                        <script src="https://checkout.stripe.com/checkout.js" class=" stripe-button"
+                    data-key="{{ key }}"
+                    data-description="Make payment"
+                    data-amount="500"
+                    data-locale="auto">$('.stripe-button').attr('data-amount', "200");
+                </script> 
+                     <script>
+                            // Hide default stripe button, be careful there if you
+                            // have more than 1 button of that class
+                            document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+                        </script>
+                <button type="submit" class=" btn  btn-warning fa fa-credit-card">Buy Now</button>
+    
+    
+    
+    
+
+                    </form>
+        <a href="#" class="btn  btn-outline-warning"> 
+            <i class="fa fa-shopping-cart"></i>Add to Card </a>
     <!-- short-info-wrap .// -->
     </article> <!-- card-body.// -->
             </aside> <!-- col.// -->
@@ -150,6 +173,8 @@
         </div> <!-- card-body.// -->
     </article> <!-- card.// -->
     
+    
+
     <!-- PRODUCT DETAIL .// -->
     
     </div> <!-- col // -->

@@ -4,6 +4,8 @@ from .forms import SignUpForm
 from django.contrib.auth import login, authenticate , logout
 from django.http import JsonResponse
 import json
+
+import stripe 
 # Create your views here.
 
 def index(request):
@@ -26,19 +28,28 @@ def show_categorie(request , slug):
     
     return render(request ,'products.html' , locals() )
 
+STRIPE_PUBLISHABLE_KEY = 'pk_test_7K5UP2JIlnyNlNf3gRXpDQPD00ggfIRiZi'
 def show_products(request , slug ):
     c = Categorie.objects.all()
 
     p = get_object_or_404(Item , slug=slug)
     
-    return render(request ,'product.html' ,locals())
+    key = STRIPE_PUBLISHABLE_KEY
+    
+    return render(request , 'product.html' ,locals())
 def test_items(request):
     p = Item.objects.all()
     return render(request , 'items.html' , locals())
 
 def purchased(request , id , uid):
     pass
+def charge(request): # new
+    if request.method == 'POST':
+        charge = stripe.Charge.create(
+            amount=500,
+            currency='usd',
+            description='A Django charge',
+            source=request.POST['stripeToken']
+        )
 
-def by(request , slug):
-    pro = get_object_or_404(Item ,slug=slug)
-    return render(request , 'purchase.html' , locals())
+    return render(request , 'product.html')

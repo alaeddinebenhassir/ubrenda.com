@@ -8,5 +8,5 @@ urlpatterns = [
     path('categorie/<slug:slug>', views.show_categorie, name = 'show_categorie'),
     path('<slug:slug>$' , views.show_products , name= 'show_cat_products'),
     path('items',views.test_items , name='items'),
-    path('items/catloge/<slug:slug>$' , views.by, name='by_now')
+    path('^', views.charge, name='charge'),
 ]
