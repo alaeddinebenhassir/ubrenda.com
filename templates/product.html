@@ -109,29 +109,7 @@
             </div> <!-- col.// -->
         </div> <!-- row.// -->
         <hr>
-         
-                <form action="{% url 'charge' %}" methode='POST'>
-                        {% csrf_token %}
-                        
-
-                        <script src="https://checkout.stripe.com/checkout.js" class=" stripe-button"
-                    data-key="{{ key }}"
-                    data-description="Make payment"
-                    data-amount="500"
-                    data-locale="auto">$('.stripe-button').attr('data-amount', "200");
-                </script> 
-                     <script>
-                            // Hide default stripe button, be careful there if you
-                            // have more than 1 button of that class
-                            document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
-                        </script>
-                <button type="submit" class=" btn  btn-warning fa fa-credit-card">Buy Now</button>
-    
-    
-    
-    
-
-                    </form>
+        <a href="#" class="btn  btn-warning"> <i class="fa fa-credit-card"></i> By Now </a>
         <a href="#" class="btn  btn-outline-warning"> 
             <i class="fa fa-shopping-cart"></i>Add to Card </a>
     <!-- short-info-wrap .// -->
@@ -172,34 +150,10 @@
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div> <!-- card-body.// -->
     </article> <!-- card.// -->
-    
-    
-
     <!-- PRODUCT DETAIL .// -->
     
     </div> <!-- col // -->
-    <aside class="col-xl-2 col-md-3 col-sm-12">
-    <div class="card mt-3">
-        <div class="card-header">
-            You may like
-        </div>
-    <div class="card-body row">
     
-    
-    <div class="col-md-12 col-sm-3">
-    <figure class="item border-bottom mb-3">
-            <a href="#" class="img-wrap"> <img src="images/items/4.jpg" class="img-md"></a>
-            <figcaption class="info-wrap">
-                <a href="#" class="title">The name of product</a>
-                <div class="price-wrap mb-3">
-                    <span class="price-new">$280</span>
-                </div> <!-- price-wrap.// -->
-            </figcaption>
-    </figure> <!-- card-product // -->
-    </div> <!-- col.// -->
-        </div> <!-- card-body.// -->
-    </div> <!-- card.// -->
-    </aside> <!-- col // -->
     </div> <!-- row.// -->
     
     

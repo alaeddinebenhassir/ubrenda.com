@@ -37,19 +37,8 @@ def show_products(request , slug ):
     key = STRIPE_PUBLISHABLE_KEY
     
     return render(request , 'product.html' ,locals())
+
 def test_items(request):
     p = Item.objects.all()
     return render(request , 'items.html' , locals())
 
-def purchased(request , id , uid):
-    pass
-def charge(request): # new
-    if request.method == 'POST':
-        charge = stripe.Charge.create(
-            amount=500,
-            currency='usd',
-            description='A Django charge',
-            source=request.POST['stripeToken']
-        )
-
-    return render(request , 'product.html')
