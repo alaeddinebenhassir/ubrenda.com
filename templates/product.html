@@ -51,11 +51,6 @@
       <dt class="col-sm-3">Brend</dt>
       <dd class="col-sm-9">{{p.brand}}</dd>
     
-      <dt class="col-sm-3">Color</dt>
-      <dd class="col-sm-9">Black and white </dd>
-    
-      <dt class="col-sm-3">Delivery</dt>
-      <dd class="col-sm-9">Russia, USA, and Europe </dd>
     </dl>
     <div class="rating-wrap">
     
@@ -95,14 +90,14 @@
                 {% csrf_token %}
                 <input type="hidden"  name="price" value="{{p.price}}">
                 <input type="hidden"  name="text" value="{{p.name}}">
-                <input type="hidden"  name="" value="3487">
+                
             <label class="btn  btn-warning">
                     <i class="fa fa-credit-card"></i>
                     <input type="submit" class="btn  btn-warning" value= "By Now"> 
             </label>
-         
-        <a href="#" class="btn  btn-outline-warning"> 
-            <i class="fa fa-shopping-cart"></i>Add to Card </a>
+            <label class="btn  btn-outline-primary">		
+                <a href="#" class="btn  btn-outline-primary"> <i class="fas fa-shopping-cart"></i> Add to cart </a></label>
+                         <!-- price-wrap.// -->
     <!-- short-info-wrap .// -->
     </article> <!-- card-body.// -->
             </aside> <!-- col.// -->
