@@ -88,28 +88,19 @@
                   </dd>
                 </dl>  <!-- item-property .// -->
             </div> <!-- col.// -->
-            <div class="col-sm-7">
-                <dl class="dlist-inline">
-                      <dt>Size: </dt>
-                      <dd>
-                          <label class="form-check form-check-inline">
-                          <input class="form-check-input" name="inlineRadioOptions" id="inlineRadio2" value="option2" type="radio">
-                          <span class="form-check-label">SM</span>
-                        </label>
-                        <label class="form-check form-check-inline">
-                          <input class="form-check-input" name="inlineRadioOptions" id="inlineRadio2" value="option2" type="radio">
-                          <span class="form-check-label">MD</span>
-                        </label>
-                        <label class="form-check form-check-inline">
-                          <input class="form-check-input" name="inlineRadioOptions" id="inlineRadio2" value="option2" type="radio">
-                          <span class="form-check-label">XXL</span>
-                        </label>
-                      </dd>
-                </dl>  <!-- item-property .// -->
-            </div> <!-- col.// -->
+            
         </div> <!-- row.// -->
         <hr>
-        <a href="#" class="btn  btn-warning"> <i class="fa fa-credit-card"></i> By Now </a>
+        <form method ="POST" action="{% url 'by_product'%}">
+                {% csrf_token %}
+                <input type="hidden"  name="price" value="{{p.price}}">
+                <input type="hidden"  name="text" value="{{p.name}}">
+                <input type="hidden"  name="" value="3487">
+            <label class="btn  btn-warning">
+                    <i class="fa fa-credit-card"></i>
+                    <input type="submit" class="btn  btn-warning" value= "By Now"> 
+            </label>
+         
         <a href="#" class="btn  btn-outline-warning"> 
             <i class="fa fa-shopping-cart"></i>Add to Card </a>
     <!-- short-info-wrap .// -->
@@ -119,44 +110,12 @@
     </main> <!-- card.// -->
     
     <!-- PRODUCT DETAIL -->
-    <article class="card mt-3">
-        <div class="card-body">
-            <h4>Detail overview</h4>
-        <p>	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi deserunt mollit anim id est laborum.</p>
-        <p>	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteurididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div> <!-- card-body.// -->
-    </article> <!-- card.// -->
+    
     <!-- PRODUCT DETAIL .// -->
     
     </div> <!-- col // -->
     
     </div> <!-- row.// -->
-    
-    
     
     </div><!-- container // -->
     </section>

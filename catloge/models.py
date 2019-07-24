@@ -59,7 +59,7 @@ class Item(models.Model):
     class Meta : 
         ordering = ['-pubdate']
     def get_absolute_url(self):
-        return reverse('show_cat_products', args=[self.slug])   
+        return reverse('show_product', args=[self.slug])   
         
 class Client(models.Model):
     name = models.CharField(max_length=50)
@@ -71,17 +71,15 @@ class Client(models.Model):
         pass
        
 class Order(models.Model):
-
-    clt = models.ForeignKey(Client , on_delete = models.CASCADE)
     itm =models.ForeignKey(Item , on_delete=models.CASCADE)
     ship_to = models.CharField(max_length=100)
     orderdate = models.DateTimeField(auto_now = True )
 
-    class Meta : 
-       
+    class Meta :  
         ordering = ['-orderdate']
     def __str__(self):
         return  str(self.itm) + ' by ' + str(self.clt) + '  AT : ' +str(self.orderdate)
+
 
 def signal_receiver(sender ,instance , *args , **kwargs):
     slug = slugify(instance.name)

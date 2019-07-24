@@ -8,7 +8,7 @@ class ItemAdmin(admin.ModelAdmin):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('clt' ,'itm' ,'ship_to' ,'orderdate')
+    list_display = ('itm' ,'ship_to' ,'orderdate')
 
 @admin.register(Categorie)
 class CategorieAdmin(admin.ModelAdmin):
