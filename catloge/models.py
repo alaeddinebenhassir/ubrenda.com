@@ -54,6 +54,7 @@ class Item(models.Model):
     brand = models.CharField(max_length = 255 , null=True)
     meta_description = models.CharField(max_length = 255 , help_text = '.....', null=True)
     meta_keywords = models.CharField(max_length = 255 , help_text='.....' ,null=True)
+    
     def __str__(self):
         return self.name
     class Meta : 

@@ -24,7 +24,7 @@ def show_categorie(request , slug):
     
     return render(request ,'products.html' , locals() )
 
-STRIPE_PUBLISHABLE_KEY = 'pk_test_7K5UP2JIlnyNlNf3gRXpDQPD00ggfIRiZi'
+STRIPE_PUBLISHABLE_KEY = 'pk_live_hZPfXaeQmmoFQ335qnTQp6le00S23mK1oj'
 def show_product(request , slug ):
     p = get_object_or_404(Item , slug=slug)
     
@@ -38,7 +38,7 @@ def test_items(request):
 
 def checkout(request):
     if  request.method == "POST" and request.is_ajax():
-        stripe.api_key = 'sk_test_w2w6DdEYDEz2gzxIS7KQgFfr00EULwZLkD'
+        stripe.api_key = 'sk_live_aaBord9i0WMfRMU7WJzYRGGM00RypGTHq6'
         token = request.POST['Token']
         text = request.session['text']
         charge = stripe.Charge.create(
@@ -46,9 +46,10 @@ def checkout(request):
             currency='usd',
             description='paid' + text ,
             source=token,
-            metadata={'order_id': 6735},)
+            metadata={'order_id': 6735},
+            )
         
-        return JsonResponse({"message" : "Done" , 'token' : token , "data" : request.session['by_now']})
+        return JsonResponse({"message" : "Done" , 'token' : token , "data" : float(request.session['by_now'])+0.5})
         
     else :
         return JsonResponse({"message" : "ERROR"})
@@ -60,7 +61,7 @@ def by_product(request):
         request.session['text']= text
         request.session['by_now']= price
 
-    return render(request , 'by_product.html' , {"pub_key" : STRIPE_PUBLISHABLE_KEY ,"data" : request.session['by_now']})
+    return render(request , 'by_product.html' , {"pub_key" : STRIPE_PUBLISHABLE_KEY ,"data" : float(request.session['by_now'])+0.5})
 
 def checked(request):
 
