@@ -59,9 +59,8 @@ def checkout(request):
 
 def by_product(request):
     if request.method == "POST":
-        name =  request.POST['name']
+        
         price = request.POST['price']
-        request.session['name']= name
         request.session['price']= price
 
     return render(request , 'by_product.html' , {"pub_key" : STRIPE_PUBLISHABLE_KEY ,"data" : float(request.session['price'])+0.5})
