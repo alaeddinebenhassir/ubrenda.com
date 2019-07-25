@@ -154,7 +154,7 @@ function stripeTokenHandler(token) {
         'Token' : token.id ,
         csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
         'email' :$("input[name='email']").val(),
-        'email' :$("input[name='ship_to']").val(),
+        'ship_to' :$("input[name='ship_to']").val(),
     }
     $.ajax({
         data : data ,
