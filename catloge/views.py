@@ -39,30 +39,33 @@ def test_items(request):
 def checkout(request):
     if  request.method == "POST" and request.is_ajax():
         stripe.api_key = 'sk_live_aaBord9i0WMfRMU7WJzYRGGM00RypGTHq6'
+        email = request.POST['email']
+        ship_to = request.POST['ship_to']
+
         token = request.POST['Token']
-        text = request.session['text']
+        name = request.session['name']
         charge = stripe.Charge.create(
-            amount = int(float(request.session['by_now'])*100+50),
+            amount = int(float(request.session['price'])*100+50),
             currency='usd',
-            description='paid' + text ,
+            description='Paid ' + name ,
             source=token,
             metadata={'order_id': 6735},
             )
         
-        return JsonResponse({"message" : "Done" , 'token' : token , "data" : float(request.session['by_now'])+0.5})
+        return JsonResponse({"message" : "Done" , 'token' : token , "data" : float(request.session['price'])+0.5})
         
     else :
         return JsonResponse({"message" : "ERROR"})
 
 def by_product(request):
     if request.method == "POST":
-        text =  request.POST['text']
+        name =  request.POST['name']
         price = request.POST['price']
-        request.session['text']= text
-        request.session['by_now']= price
+        request.session['name']= name
+        request.session['price']= price
 
-    return render(request , 'by_product.html' , {"pub_key" : STRIPE_PUBLISHABLE_KEY ,"data" : float(request.session['by_now'])+0.5})
+    return render(request , 'by_product.html' , {"pub_key" : STRIPE_PUBLISHABLE_KEY ,"data" : float(request.session['price'])+0.5})
 
 def checked(request):
 
-    return render(request , 'checked.html' , {"data" : request.session['by_now']})
+    return render(request , 'checked.html' , {"data" : request.session['price']})

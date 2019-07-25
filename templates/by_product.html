@@ -58,8 +58,8 @@
                                     
                                   
                                 <div class="container" style="margin : 10px;" >
-                                  <input class="form-control"  type="text" placeholder="Email"><br>
-                                      <input class="form-control"  type="text" placeholder="Shiping address"><br>
+                                  <input class="form-control"  type="text" placeholder="Email" name="email"><br>
+                                      <input class="form-control"  type="text" placeholder="Shiping address" name="ship_to"><br>
                                   <div class="form-row" >
                                     
                                     <div id="card-element" class="form-control">
@@ -153,7 +153,8 @@ function stripeTokenHandler(token) {
     var data = {
         'Token' : token.id ,
         csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
-
+        'email' :$("input[name='email']").val(),
+        'email' :$("input[name='ship_to']").val(),
     }
     $.ajax({
         data : data ,

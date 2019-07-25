@@ -144,7 +144,7 @@
 					<form method ="POST" action="{% url 'by_product'%}">
 						{% csrf_token %}
 						<input type="hidden"  name="price" value="{{p.price}}">
-						<input type="hidden"  name="text" value="{{p.name}}">
+						<input type="hidden"  name="name" value="{{p.name}}">
 						
 					<label class="btn  btn-warning">
 							<i class="fa fa-credit-card"></i>
