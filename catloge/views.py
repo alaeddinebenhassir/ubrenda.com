@@ -64,7 +64,3 @@ def by_product(request):
         request.session['price']= price
 
     return render(request , 'by_product.html' , {"pub_key" : STRIPE_PUBLISHABLE_KEY ,"data" : float(request.session['price'])+0.5})
-
-def checked(request):
-
-    return render(request , 'checked.html' , {"data" : request.session['price']})
