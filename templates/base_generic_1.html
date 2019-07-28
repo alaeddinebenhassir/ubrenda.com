@@ -7,7 +7,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Bootstrap-ecommerce by Vosidiy">
-    
+      <!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static "divistyle/css/bootstrap.min.css" %} "/>
+	<link rel="stylesheet" href="{% static "divistyle/css/font-awesome.min.css" %} "/>
+	<link rel="stylesheet" href="{% static "divistyle/css/flaticon.css" %} "/>
+	<link rel="stylesheet" href="{% static "divistyle/css/slicknav.min.css" %} "/>
+	<link rel="stylesheet" href="{% static "divistyle/css/jquery-ui.min.css" %} "/>
+	<link rel="stylesheet" href="{% static "divistyle/css/owl.carousel.min.css" %} "/>
+	<link rel="stylesheet" href="{% static "divistyle/css/animate.css" %} "/>
+	<link rel="stylesheet" href="{% static "divistyle/css/style.css" %} "/>
+
+
     <title>Ubrenda</title>
     <script type="text/javascript">
         window.$crisp=[];window.CRISP_WEBSITE_ID="69fb3f95-8680-4296-91ef-738cb0a520c7";
@@ -59,7 +69,8 @@
     <title>{% block title %} Document {% endblock %}</title>
 </head>
 <body>
-  
+    
+    
     {% block content %}{% endblock %}
     
   
@@ -68,5 +79,13 @@
 
          
     {% endblock javascript %}
+    <script src=" {% static "divistyle/js/jquery-3.2.1.min.js" %}"></script>
+    <script src=" {% static "divistyle/js/bootstrap.min.js" %}"></script>
+    <script src=" {% static "divistyle/js/jquery.slicknav.min.js" %}"></script>
+    <script src=" {% static "divistyle/js/owl.carousel.min.js" %}"></script>
+    <script src=" {% static "divistyle/js/jquery.nicescroll.min.js" %}"></script>
+    <script src=" {% static "divistyle/js/jquery.zoom.min.js" %}"></script>
+    <script src=" {% static "divistyle/js/jquery-ui.min.js" %}"></script>
+    <script src=" {% static "divistyle/js/main.js" %}"></script>
   </body>
 </html>

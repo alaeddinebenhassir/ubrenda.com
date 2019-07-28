@@ -1,6 +1,7 @@
 {% extends "base_generic_1.html"%}
 {% block content %}
 {% load static %}
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <script src="https://js.stripe.com/v3/"></script>
 
@@ -39,7 +40,12 @@
 </style>
 <!-- Top header -->
 <!-- Cards container -->
+	<!-- Page Preloder -->
+	
     <div class="container text-center">
+        <div id="preloder">
+            <div class="loader"></div>
+          </div>
         <div class="row">
 <!-- Card #2, Intermediate -->
             <div class="col-lg-6 col-md-6 col-sm-10 pb-4 d-block m-auto">

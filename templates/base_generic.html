@@ -22,7 +22,17 @@
     </script>
     
     <link rel="shortcut icon" type="image/x-icon" href="{% static "images/favicon.ico" %}">
-    
+    <!-- Stylesheets -->
+
+	<link rel="stylesheet" href="{% static "divistyle/css/font-awesome.min.css" %} "/>
+	<link rel="stylesheet" href="{% static "divistyle/css/flaticon.css" %} "/>
+	<link rel="stylesheet" href="{% static "divistyle/css/slicknav.min.css" %} "/>
+	<link rel="stylesheet" href="{% static "divistyle/css/jquery-ui.min.css" %} "/>
+	<link rel="stylesheet" href="{% static "divistyle/css/owl.carousel.min.css" %} "/>
+	<link rel="stylesheet" href="{% static "divistyle/css/animate.css" %} "/>
+	<link rel="stylesheet" href="{% static "divistyle/css/style.css" %} "/>
+
+
     <!-- jQuery -->
     <script src="{% static "js/jquery-2.0.0.min.js" %}" type="text/javascript"></script>
     
@@ -59,6 +69,10 @@
     <title>{% block title %} Document {% endblock %}</title>
 </head>
 <body>
+    <div id="preloder">
+        <div class="loader"></div>
+      </div>
+    
   <header class="section-header">
     <nav class="navbar navbar-top navbar-expand-lg navbar-dark bg-secondary">
       <div class="container">
@@ -89,8 +103,10 @@
     <div class="row align-items-center">
       <div class="col-lg-3 col-sm-4">
       <div class="brand-wrap">
+        <a href="{% url 'index' %}">
         <img class="logo" src= "{% static "images/logos/logo-alibaba.png" %} ">
-        <h2 class="logo-text"></h2>
+      </a>
+        
       </div> <!-- brand-wrap.// -->
       </div>
       <div class="col-lg-4 col-xl-5 col-sm-8">
@@ -262,5 +278,15 @@
 
          
     {% endblock javascript %}
+    
+	<!--====== Javascripts & Jquery ======-->
+	<script src=" {% static "divistyle/js/jquery-3.2.1.min.js" %}"></script>
+	<script src=" {% static "divistyle/js/bootstrap.min.js" %}"></script>
+	<script src=" {% static "divistyle/js/jquery.slicknav.min.js" %}"></script>
+	<script src=" {% static "divistyle/js/owl.carousel.min.js" %}"></script>
+	<script src=" {% static "divistyle/js/jquery.nicescroll.min.js" %}"></script>
+	<script src=" {% static "divistyle/js/jquery.zoom.min.js" %}"></script>
+	<script src=" {% static "divistyle/js/jquery-ui.min.js" %}"></script>
+	<script src=" {% static "divistyle/js/main.js" %}"></script>
   </body>
 </html>
