@@ -14,6 +14,7 @@
 	<div class="row row-sm">
 		<aside class="col-md-3">
 	<h5 class="text-uppercase">Categories</h5>
+	
 		<ul class="menu-category ">
 			<li> <a href="#" >Food &amp Beverage </a></li>
 			<li> <a href="#" >Home Equipments </a></li>
@@ -38,19 +39,27 @@
 		<div class="col-md-6">
 	
 	<!-- ================= main slide ================= -->
-	<div class="owl-init slider-main owl-carousel" data-items="1" data-nav="true" data-dots="false">
-		<div class="item-slide">
-			<img src="{% static "images/banners/slide1.jpg" %}">
-		</div>
-		<div class="item-slide">
-			<img src="{% static "images/banners/slide2.jpg" %}">
-		
-		</div>
-		<div class="item-slide">
-			<img src="{% static "images/banners/slide3.jpg" %}">
+	<div id="carouselExampleIndicators" class="carousel slide owl-init slider-main" style=""data-ride="carousel">
+			<ol class="carousel-indicators">
+			  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
+			  <div class="carousel-item active">
+				<img class="d-block w-100" src="{% static "images/banners/slide1.jpg" %}" alt="First slide">
+			  </div>
+			  <div class="carousel-item">
+				<img class="d-block w-100" src="{% static "images/banners/slide2.jpg" %}" alt="Second slide">
+			  </div>
+			  <div class="carousel-item">
+				<img class="d-block w-100" src="{% static "images/banners/slide3.jpg" %}" alt="Third slide">
+			  </div>
+			</div>
 			
-		</div>
-	</div>
+		  </div>
+		
+	
 	<!-- ============== main slidesow .end // ============= -->
 	
 		</div> <!-- col.// -->
