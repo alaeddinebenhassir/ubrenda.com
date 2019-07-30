@@ -24,7 +24,7 @@ def show_categorie(request , slug):
     
     return render(request ,'products.html' , locals() )
 
-STRIPE_PUBLISHABLE_KEY = 'pk_live_glqZingbnYVyoncW4s3GcQiO00RFWwcgW9'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_eJzUry98i0m3vipsD9oQr2sB0013oq5o3f'
 def show_product(request , slug ):
     p = get_object_or_404(Item , slug=slug)
     
@@ -38,7 +38,7 @@ def test_items(request):
 
 def checkout(request):
     if  request.method == "POST" and request.is_ajax():
-        stripe.api_key = 'sk_live_RxdMJqDkTtWSDnxcB94l9sZT005KUauNk9'
+        stripe.api_key = 'sk_test_hf6QxTQLy7t4aP0LR3igPw8d00ru0S6dxC'
         email = request.POST['email']
         ship_to = request.POST['ship_to']
 
