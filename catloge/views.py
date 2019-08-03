@@ -36,32 +36,36 @@ def test_items(request):
     p = Item.objects.all()
     return render(request , 'items.html' , locals())
 
-def checkout(request):
+def checkout(request, **kwargs):
     if  request.method == "POST" and request.is_ajax():
-        stripe.api_key = 'sk_test_hf6QxTQLy7t4aP0LR3igPw8d00ru0S6dxC'
-        token = request.POST['Token']
-        text = request.session['text']
-        charge = stripe.Charge.create(
-            amount = int(float(request.session['by_now'])*100+50),
-            currency='usd',
-            description='paid' + text ,
-            source=token,
-            metadata={'order_id': 6735},)
         
+        token = request.POST['Token']
+        request.session['token'] = token
         return JsonResponse({"message" : "Done" , 'token' : token , "data" : request.session['by_now']})
         
     else :
         return JsonResponse({"message" : "ERROR"})
 
-def by_product(request):
-    if request.method == "POST":
-        text =  request.POST['text']
-        price = request.POST['price']
-        request.session['text']= text
-        request.session['by_now']= price
+def by_product(request , slug  ):
 
-    return render(request , 'by_product.html' , {"pub_key" : STRIPE_PUBLISHABLE_KEY ,"data" : request.session['by_now']})
+    p = get_object_or_404(Item , slug=slug)
 
-def checked(request):
+    request.session['text'] = p.descreption
+    request.session['by_now'] = str(p.price)
 
-    return render(request , 'checked.html' , {"data" : request.session['by_now']})
+    return render(request , 'by_product.html' , {"pub_key" : STRIPE_PUBLISHABLE_KEY ,"data" : p.price})
+
+
+def makeOrder(request ):
+    token = request.session['token']
+                    
+    stripe.api_key = 'sk_test_hf6QxTQLy7t4aP0LR3igPw8d00ru0S6dxC'
+    charge = stripe.Charge.create(
+        amount = int(float(request.session['by_now'])*100+50),
+        currency='usd',
+        description='paid for : ' ,
+        source=token,
+        metadata={'order_id': 6735},)
+    return JsonResponse({"message" : "Done" , 'token' : token , "data" : request.session['by_now']})
+   
+    

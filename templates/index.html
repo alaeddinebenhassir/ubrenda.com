@@ -141,7 +141,7 @@
 							<span class="price-new">{{p.price}}</span>
 												<del class="price-old">{{p.old_price}}</del>
 					</div>
-					<form method ="POST" action="{% url 'by_product'%}">
+					<form method ="POST" action="{% url 'by_product' slug=p.slug  %}">
 						{% csrf_token %}
 						<input type="hidden"  name="price" value="{{p.price}}">
 						<input type="hidden"  name="text" value="{{p.name}}">
