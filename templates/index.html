@@ -116,13 +116,13 @@
 		<div class="row">
 				{%for p in product %}
 				
-		<div class="col-md-4">
+		<div class="col-md-2">
 			<figure class="card card-product">
 				<a href="{{p.get_absolute_url}}">
 				<div class="img-wrap"><img src="{{p.img.url}}"></div></a>
 				<figcaption class="info-wrap">
 						<h4 class="title"><a href="{{p.get_absolute_url}}">{{p.name}}</a></h4>
-						<p class="desc">Some small description goes here</p>
+						<p class="desc">{{p.descreption}}</p>
 						<div class="rating-wrap">
 							<ul class="rating-stars">
 								<li style="width:80%" class="stars-active"> 
@@ -146,12 +146,12 @@
 						<input type="hidden"  name="price" value="{{p.price}}">
 						<input type="hidden"  name="text" value="{{p.name}}">
 						
-					<label class="btn  btn-warning">
-							<i class="fa fa-credit-card"></i>
+					
+							
 							<input type="submit" class="btn  btn-warning" value= "Buy Now"> 
-					</label>
-					<label class="btn  btn-outline-primary">		
-			<a href="#" class="btn  btn-outline-primary"> <i class="fas fa-shopping-cart"></i> Add to cart </a></label>
+					
+						
+			<a href="#" class="btn  btn-outline-primary"> <i class="fas fa-shopping-cart"></i> Add to cart </a>
 					 <!-- price-wrap.// -->
 				</div> <!-- bottom-wrap.// -->
 			</figure>
