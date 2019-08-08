@@ -114,7 +114,7 @@ setOutcome(event);
 
 
 
-document.querySelector('form').addEventListener('submit', function(e) {
+document.querySelector('.group').addEventListener('submit', function(e) {
 e.preventDefault();
 var options = {
 address_zip: document.getElementById('postal-code').value,

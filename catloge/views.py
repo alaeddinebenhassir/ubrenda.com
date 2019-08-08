@@ -53,7 +53,7 @@ def by_product(request , slug  ):
     request.session['text'] = p.descreption
     request.session['by_now'] = str(p.price)
 
-    return render(request , 'by_product.html' , {"pub_key" : STRIPE_PUBLISHABLE_KEY ,"data" : p.price})
+    return render(request , 'by_product.html' , {"pub_key" : STRIPE_PUBLISHABLE_KEY ,"product" : p})
 
 
 def makeOrder(request ):
@@ -68,4 +68,6 @@ def makeOrder(request ):
         metadata={'order_id': 6735},)
     return JsonResponse({"message" : "Done" , 'token' : token , "data" : request.session['by_now']})
    
-    
+def paypalCeckout(request):
+
+    return render(request , 'paypal.html')

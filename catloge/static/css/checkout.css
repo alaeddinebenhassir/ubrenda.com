@@ -38,8 +38,10 @@ line-height: 1.3em;
         
         .grid-container {
           display: grid;
-          grid-template-areas: 'header right' 
-          'main right' 'footer footer'
+          grid-template-areas: 
+          'header right right' 
+          'main right right' 
+          'footer footer footer'
           ;
           grid-gap: 0px;
           

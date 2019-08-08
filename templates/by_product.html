@@ -19,7 +19,7 @@
           <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>1</b></span></h4>
           <p><a href="#">Product 1</a> <span class="price">$15</span></p>
           <p><a href="#">Shipping </a> <span class="price">$15</span></p>
-          
+          {{product.name}}
           <p>Total <span class="price" style="color:black"><b>$30</b></span>
             <button id="check" class="btn btn-primary btn-block" disabled='disabled' >Pay Now </button>
         
@@ -39,6 +39,7 @@
       </div>
     <div class="card-body p-3">
        <form action="">
+          {% csrf_token %}
         <div class="row">
         <div class="col-sm-6">
             <div class="form-group">
@@ -58,12 +59,38 @@
                 <input type="text" class="form-control" name="username" placeholder="Address" required="">
               </div> <!-- form-group.// -->
         </div>
-        <div class="col-sm-12">
+        <div class="col-sm-4  ">
+          <div class="form-group">
+              <label for="username">City</label>
+              <input type="text" class="form-control" name="username" placeholder="City" required="">
+            </div> <!-- form-group.// -->
+      </div>
+        <div class="col-sm-4">
             <div class="form-group">
-                <label for="username">City</label>
-                <input type="text" class="form-control" name="username" placeholder="City" required="">
+                <label for="username">State / Region</label>
+                <input type="text" class="form-control" name="username" placeholder="State / Region" required="">
               </div> <!-- form-group.// -->
         </div>
+        
+      
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="username">Postal Code</label>
+                <input type="text" class="form-control" name="username" placeholder="Postal Code" required="">
+              </div> <!-- form-group.// -->
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+              <label for="username">Country </label>
+              <input type="text" class="form-control" name="username" placeholder="Country " required="">
+            </div> <!-- form-group.// -->
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+            <label for="username">Phone Number </label>
+            <input type="text" class="form-control" name="username" placeholder="Phone Number" required="">
+          </div> <!-- form-group.// -->
+    </div>
       </div>
        
     </form> 

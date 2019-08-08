@@ -1,100 +1,92 @@
 {% extends "base_generic.html"%}
 {% block content %}
 {% load static %}
-<!-- ========================= SECTION CONTENT ========================= -->
-<section class="section-content bg padding-y-sm">
+
+
+    <!-- product section -->
     <div class="container">
-    <nav class="mb-3">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item"><a href="#">Category name</a></li>
-        <li class="breadcrumb-item"><a href="#">Sub category</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Items</li>
-    </ol> 
-    </nav>
+	<section class="product-section">
+		<div class="container">
+			
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="product-pic">
+						<img class="product-big-img" src="{{p.img.url}}" alt="">
+                    </div>
+                    
+                
+					<div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
+						<div class="product-thumbs-track">
+							<div class="pt active" data-imgbigurl="{{p.img.url}}"><img src="{{p.img.url}}" alt=""></div>
+							<div class="pt" data-imgbigurl="{{p.sub_img_1.url}}"><img src="{{p.sub_img_1.url}}" alt=""></div>
+							<div class="pt" data-imgbigurl="{{p.sub_img_2.url}}"><img src="{{p.sub_img_2.url}}" alt=""></div>
+							<div class="pt" data-imgbigurl="{{p.sub_img_3.url}}"><img src="{{p.sub_img_3.url}}" alt=""></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 product-details">
+                    <br>
+                        <h2 class="p-title">{{p.name}}</h2>
+					<div class="pricing-price pb-1 text-primary color-primary-text ">
+                        <h1 style="font-weight: 1000; font-size: 3em;">
+                            <span style="font-size: 20px;">$</span>{{p.price}}
+                        </h1>
+                    </div>
+					
+					<h4 class="p-stock">Brend: <span>{{p.brand}}</span></h4>
+					<div class="rating-wrap">
     
-    <div class="row">
-    <div class="col-xl-10 col-md-9 col-sm-12">
-    
-    
-    <main class="card">
-        <div class="row no-gutters">
-            <aside class="col-sm-6 border-right">
-    <article class="gallery-wrap"> 
-    <div class="img-big-wrap">
-      <div> <a href="{{p.img.url}}" data-fancybox=""><img src="{{p.img.url}}"></a></div>
-    </div> <!-- slider-product.// -->
-    <div class="img-small-wrap">
-      <div class="item-gallery"> <img src="{{p.img.url}}"></div>
-      <div class="item-gallery"> <img src="{{p.sub_img_1.url}}"></div>
-      <div class="item-gallery"> <img src="{{p.sub_img_2.url}}"></div>
-      <div class="item-gallery"> <img src="{{p.sub_img_3.url}}"></div>
-    </div> <!-- slider-nav.// -->
-    </article> <!-- gallery-wrap .end// -->
-            </aside>
-            <aside class="col-sm-6">
-    <article class="card-body">
-    <!-- short-info-wrap -->
-        <h3 class="title mb-3">{{ p.name }}</h3>
-    
-    <div class="mb-3"> 
-        <var class="price h3 text-warning"> 
-            <span class="currency">US $</span><span class="num">{{p.price}}</span>
-        </var> 
-        <span>/per Unit</span> 
-    </div> <!-- price-detail-wrap .// -->
-    <dl>
-      <dt>Description</dt>
-      <dd><p>{{p.descreption}}</p></dd>
-    </dl>
-    <dl class="row">
-      <dt class="col-sm-3">Brend</dt>
-      <dd class="col-sm-9">{{p.brand}}</dd>
-    
-    </dl>
-    <div class="rating-wrap">
-    
-        <ul class="rating-stars">
-            <li style="width:80%" class="stars-active"> 
-                <i class="fa fa-star"></i> <i class="fa fa-star"></i> 
-                <i class="fa fa-star"></i> <i class="fa fa-star"></i> 
-                <i class="fa fa-star"></i> 
-            </li>
-            <li>
-                <i class="fa fa-star"></i> <i class="fa fa-star"></i> 
-                <i class="fa fa-star"></i> <i class="fa fa-star"></i> 
-                <i class="fa fa-star"></i> 
-            </li>
-        </ul>
-        <div class="label-rating">132 reviews</div>
-        <div class="label-rating">154 orders </div>
-    </div> <!-- rating-wrap.// -->
-    <hr>
-        
-      
-        
-                    <a href="{% url 'by_product' slug=p.slug %}" class="btn  btn-warning" value= "By Now"> <i class="fa fa-credit-card"></i> Buy Now  </a>
-           	
-                <a href="#" class="btn  btn-outline-primary"> <i class="fas fa-shopping-cart"></i> Add to cart </a>
+                        <ul class="rating-stars">
+                            <li style="width:80%" class="stars-active"> 
+                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> 
+                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> 
+                                <i class="fa fa-star"></i> 
+                            </li>
+                            <li>
+                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> 
+                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> 
+                                <i class="fa fa-star"></i> 
+                            </li>
+                        </ul>
+                        <div class="label-rating">132 reviews</div>
+                        <div class="label-rating">154 orders </div>
+                    </div> <!-- rating-wrap.// -->
+					
+					
+					<div class="quantity">
+						<p>Quantity</p>
+                        <div class="pro-qty"><input type="text" value="1"></div>
+                    </div>
+                    <hr>
+                    <div class="container">
+                    <form method ="POST" action="{% url 'by_product' slug=p.slug %}">
+                        {% csrf_token %}
+                        <input type="hidden"  name="price" value="{{p.price}}">
+                        <input type="hidden"  name="name" value="{{p.name}}">
+                        
+                   
+                            
+                            <input type="submit" class="btn  btn-warning" value= "By Now"> 
+                    
+                
+                   		
+                        <a href="#" class="btn  btn-outline-primary"> <i class="fas fa-shopping-cart"></i> Add to cart </a>
+                    
+                    </form>
+                </div>
                 <hr>
-                         <!-- price-wrap.// -->
-    <!-- short-info-wrap .// -->
-    </article> <!-- card-body.// -->
-            </aside> <!-- col.// -->
-        </div> <!-- row.// -->
-    </main> <!-- card.// -->
-    
-    <!-- PRODUCT DETAIL -->
-    
-    <!-- PRODUCT DETAIL .// -->
-    
-    </div> <!-- col // -->
-    
-    </div> <!-- row.// -->
-    
-    </div><!-- container // -->
+                <div class="container">
+                    <h3>Descreption</h3>
+                    <p>{{p.descreption}}</p>
+                </div>
+				</div>
+			</div>
+		</div>
     </section>
-    <!-- ========================= SECTION CONTENT .END// ========================= -->
+    </div>
+    <hr>
+	<!-- product section end -->
+
     
-    
+
 {% endblock %}
