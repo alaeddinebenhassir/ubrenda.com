@@ -56,7 +56,7 @@
 
   <article >
       <div class="card-header p-3">
-          <span class="headercheckout">Shipping address </span>
+          <span class="headercheckout">Ship to </span>
       </div>
     <div class="card-body p-3">
        <form action="">
@@ -76,6 +76,13 @@
 
               </div> <!-- md-form.// -->
         </div>
+        <div class="col-sm-6">
+            <div class="md-form">
+                <label for="">Country </label>
+               
+               <input type="text" name="country" id="contry" class="form-control"value="United States" readonly>
+              </div> <!-- md-form.// -->
+        </div>  
         <div class="col-sm-12">
             <div class="md-form">
                 
@@ -160,26 +167,21 @@
                 <label for="zip">Postal Code</label>
               </div> <!-- md-form.// -->
         </div>
-        <div class="col-sm-6">
-          <div class="md-form">
-              <label for="">Country </label>
-             
-             <input type="text" name="country" id="contry" class="form-control"value="United States" readonly>
-            </div> <!-- md-form.// -->
-      </div>
+        
       <div class="col-sm-6">
         <div class="md-form">
             <label for="phone">Phone Number </label>
             <input type="text" id ="phone"class="form-control" name="username"  required="">
           </div> <!-- md-form.// -->
     </div>
+    <button type="submit" class="btn btn-primary" > DONE </button>
       </div>
-       
+    
     </form> 
     
     </div>
     <div class="card-header p-3">
-        <span class="headercheckout">Payment Method </span>
+        <span class="headercheckout">Pay With </span>
     </div>
     <div class="card-body p-3">
     
@@ -208,8 +210,7 @@
                     <div class="swal2-success-circular-line-right" style="background-color: rgba(255, 255, 255, 0);"></div>
                 </div>
     </div>
-           
-               
+                   
 	<form action="" class="group" method="POST">
         {% csrf_token %}
 	<div class="md-form">
