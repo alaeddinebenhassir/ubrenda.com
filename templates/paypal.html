@@ -7,31 +7,109 @@
     </head>
       
     <body>
-    <script
-         src="https://www.paypal.com/sdk/js?client-id=AWbHvq1Zf9JzW1cTTtyVdNlM0x839mA25AfvhOJ5L9O1FkUUYJkZ78QKlgdf2SfcKn7X7FyljFwTufa6">
-    </script>
-    <div id="paypal-button-container"></div>
+<div class="row">
+        <div class="col">
+          <div>
+            <span class="minus">-</span>
+            <input class="qty" value="1" disabled>
+            <span class="plus">+</span>
+          </div>
+        </div>
+        <div class="col">
+          <span>price 1</span>
+          <span class="price">50</span>
+        </div>
+        <div class="col">
+          <span>sum 1</span>
+          <span class="sum">0</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div>
+            <span class="minus">-</span>
+            <input class="qty" value="1" disabled>
+            <span class="plus">+</span>
+          </div>
+        </div>
+        <div class="col">
+          <span>price 2</span>
+          <span class="price">50</span>
+        </div>
+        <div class="col">
+          <span>sum 2</span>
+          <span class="sum">0</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <span>total</span>
+          <span id="total"></span>
+        </div>
+      </div>
 
-    <script>
-       paypal.Buttons({
-    createOrder: function(data, actions) {
-      return actions.order.create({
-        purchase_units: [{
-          amount: {
-            value: '0.01'
-          }
-        }]
-      });
-    },
-    onApprove: function(data, actions) {
-      // Capture the funds from the transaction
-      return actions.order.capture().then(function(details) {
-        // Show a success message to your buyer
-        alert('Transaction completed by ' + details.payer.name.given_name);
-      });
-    }
-  }).render('#paypal-button-container');
-    </script>
+
+
+
+      <script>
+      
+      function getTotal() {
+  var total = 0;
+  $('.sum').each(function () {
+    total += parseFloat(this.innerHTML);
+  });
+  $('#total').text(total);
+}
+getTotal();
+
+$(".qty").each(function () {
+    var parent = $(this).parents('.row'),
+    price = $('.price', parent),
+    sum = $('.sum', parent),
+    value = parseInt(this.value) * parseFloat(price.get(0).innerHTML || 0);
+    sum.text(value);
+    getTotal();
+});
+
+$("span.minus").on("click", function () {
+  var $qty = $(this).closest('.col').find('.qty'),
+      currentVal = parseInt($qty.val());
+  if (!isNaN(currentVal) && currentVal > 1) {
+    $qty.val(currentVal - 1);
+  }
+  $('.col .qty').is(function () {
+    var parent = $(this).parents('.row'),
+        price = $('.price', parent),
+        sum = $('.sum', parent),
+        value = parseInt(this.value) * parseFloat(price.get(0).innerHTML || 0);
+    sum.text(value);
+    getTotal();
+  });
+});
+
+$("span.plus").on("click", function () {
+  var $qty = $(this).closest('.col').find('.qty'),
+      currentVal = parseInt($qty.val());
+  if (!isNaN(currentVal)) {
+    $qty.val(currentVal + 1);
+  }
+  $('.col .qty').is(function () {
+    var parent = $(this).parents('.row'),
+        price = $('.price', parent),
+        sum = $('.sum', parent),
+        value = parseInt(this.value) * parseFloat(price.get(0).innerHTML || 0);
+    sum.text(value);
+    getTotal();
+  });
+});
+      </script>
+
+
+
+
+
+
+
 
 
 

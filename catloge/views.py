@@ -53,7 +53,7 @@ def by_product(request , slug  ):
     request.session['text'] = p.descreption
     request.session['by_now'] = str(p.price)
 
-    return render(request , 'by_product.html' , {"pub_key" : STRIPE_PUBLISHABLE_KEY ,"product" : p})
+    return render(request , 'by_product.html' , {"pub_key" : STRIPE_PUBLISHABLE_KEY ,"p" : p})
 
 
 def makeOrder(request ):
