@@ -146,7 +146,7 @@ document.querySelector('.shipto').addEventListener('submit' , function(e) {
 document.querySelector('.group').addEventListener('submit', function(e) {
 e.preventDefault();
 var options = {
-address_zip: document.getElementById('postal-code').value,
+
 };
 stripe.createToken(cardNumberElement, options).then(setOutcome);
 loader.classList.add('visible');
