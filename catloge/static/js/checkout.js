@@ -42,6 +42,9 @@ var errorElement = document.querySelector('.error');
 var cardAdded = document.querySelector('.group');
 var done = document.querySelector('.done');
 
+var shipto = document.querySelector('#shipto');
+var shiptoup = document.querySelector('#shiptoup');
+
 cardAdded.classList.add('visible');
 successElement.classList.remove('visible');
 errorElement.classList.remove('visible');
@@ -50,6 +53,7 @@ errorElement.classList.remove('visible');
 if (result.token) {
 // In this example, we're simply displaying the token
 successElement.querySelector('.token').textContent = result.token.id;
+
 successElement.classList.add('visible');
 cardAdded.classList.add('invisible');
 loader.classList.remove('visible');
@@ -111,7 +115,32 @@ setBrandIcon(event.brand);
 
 setOutcome(event);
 });
+var shipto = document.querySelector('#shipto');
+var shiptoup = document.querySelector('#shiptoup');
+var shiptoupct = document.querySelector('#shiptoupct');
+document.querySelector('.shipto').addEventListener('submit' , function(e) {
+  e.preventDefault();
+  firstname = document.getElementById('firstname').value ;
+  lastname = document.getElementById('lastname').value ;
+  country = document.getElementById('country').value ;
+  address = document.getElementById('address').value ;
+  city = document.getElementById('city').value ;
+  phone = document.getElementById('phone').value ;
+  zip = document.getElementById('zip').value ;
+  state = document.getElementById('state');
+  state = state.options[state.selectedIndex].value;
+  shiptoup.classList.remove('invisible');
+  shipto.classList.add('invisible');
 
+  shiptoupct.innerHTML = firstname+" "+ lastname + "<br>" +address+"<br>"+city+" " +state+" "+zip +"<br>"+country+"<br>"+ phone ;
+  
+  document.querySelector('#change').addEventListener('click', function(e){
+    shipto.classList.remove('invisible');
+    shiptoup.classList.add('invisible');
+
+  });
+  
+});
 
 
 document.querySelector('.group').addEventListener('submit', function(e) {
@@ -124,7 +153,7 @@ loader.classList.add('visible');
 });
 document.getElementById("check").onclick = function () { 
   var data = {
-      
+  
     csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
 
 }
